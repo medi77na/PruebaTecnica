@@ -8,8 +8,8 @@ namespace _11_RecomendacionesProyectoBase.Models;
 public abstract class Animal
 {
 
-    protected Guid id;
-    public Guid Id
+    protected int id = 0;
+    public int Id
     {
         get { return id; }
         set { id = value; }
@@ -60,7 +60,7 @@ public abstract class Animal
 
     public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, HairTypes furLength)
     {
-        Id = Guid.NewGuid();
+        Id = id++;
         Name = name;
         Birthdate = birthDate;
         BreedingStatus = breedingStatus;
@@ -89,7 +89,6 @@ public abstract class Animal
         if (BreedingStatus)
         {
             Console.WriteLine($"No podemos VOLVER a castrar a {name}...");
-            
         }
         else
         {

@@ -145,4 +145,26 @@ public class Validation
         } while (flag);
         return number;
     }
+
+    public static DateOnly ValidateDate(DateOnly askDate)
+    {
+        bool flag = true;
+        DateOnly date;
+
+        do
+        {
+            date = askDate;
+            if (date.Month > DateTime.Now.Month && date.Year > DateTime.Now.Year)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("La fecha ingresada no es válida, digitelo nuevamente...");
+                VisualInterfaceProgram.WaitForKey();
+            }
+            else
+            {
+                flag = false;
+            }
+        } while (flag);
+        return date;
+    }
 }
