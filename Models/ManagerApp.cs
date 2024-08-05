@@ -67,39 +67,54 @@ INGRESE LA OPCIÓN: ", 1, 4);
             {
                 case 1:
                     animalClinic.SaveDog();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 2:
                     animalClinic.UpdateDog();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 3:
                     animalClinic.DeleteDog();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 4:
+                    ShowHeaderPets();
                     animalClinic.ShowDogs();
+                    Separators();
+                    VisualInterfaceProgram.WaitForKey();
+                    Console.Clear();
                     break;
                 case 5:
+                    animalClinic.CastrateDog();
+                    VisualInterfaceProgram.WaitForKey();
+                    break;
+                case 6:
+                    animalClinic.HairdresDog();
+                    VisualInterfaceProgram.WaitForKey();
+                    break;
+                case 7:
                     break;
                 default:
                     Console.WriteLine("Opción inválida.");
                     break;
             }
-        } while (option != 5);
-
-
-
+        } while (option != 7);
     }
 
     public static int ShowMenuByDog()
     {
+        Console.Clear();
         return Validation.ValidateIntRange(@"GESTIÓN DE PERROS
 ---------------------------------------------------------------------------------------------------------
 1. Añadir perro
 2. Actualizar perro
 3. Eliminar perro
 4. Listar perros
-5. Volver al menú principal
+5. Castrar perro
+6. Motilar perro
+7. Volver al menú principal
 ---------------------------------------------------------------------------------------------------------
-INGRESE LA OPCIÓN: ", 1, 5);
+INGRESE LA OPCIÓN: ", 1, 7);
     }
 
     public static void MenuByCat()
@@ -113,38 +128,54 @@ INGRESE LA OPCIÓN: ", 1, 5);
             {
                 case 1:
                     animalClinic.SaveCat();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 2:
-                    animalClinic.UpdateDog();
+                    animalClinic.UpdateCat();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 3:
                     animalClinic.DeleteCat();
+                    VisualInterfaceProgram.WaitForKey();
                     break;
                 case 4:
-                    Console.Clear();
                     ShowHeaderPets();
                     animalClinic.ShowCats();
+                    Separators();
+                    VisualInterfaceProgram.WaitForKey();
+                    Console.Clear();
                     break;
                 case 5:
+                    animalClinic.CastrateCat();
+                    VisualInterfaceProgram.WaitForKey();
+                    break;
+                case 6:
+                    animalClinic.HairdresCat();
+                    VisualInterfaceProgram.WaitForKey();
+                    break;
+                case 7:
                     break;
                 default:
                     Console.WriteLine("Opción inválida.");
                     break;
             }
-        } while (option != 5);
+        } while (option != 7);
     }
 
     public static int ShowMenuByCat()
     {
+        Console.Clear();
         return Validation.ValidateIntRange(@"GESTIÓN DE GATOS
 ---------------------------------------------------------------------------------------------------------
 1. Añadir gato
 2. Actualizar gato
 3. Eliminar gato
 4. Listar gatos
-5. Volver al menú principal
+5. Castrar gato
+6. Motilar gato
+7. Volver al menú principal
 ---------------------------------------------------------------------------------------------------------
-INGRESE LA OPCIÓN: ", 1, 5);
+INGRESE LA OPCIÓN: ", 1, 7);
     }
 
     public static void ShowPets()

@@ -92,7 +92,7 @@ public abstract class Animal
 
     public void CastrateAnimal()
     {
-        if (BreedingStatus)
+        if (!BreedingStatus)
         {
             Console.WriteLine($"No podemos VOLVER a castrar a {name}...");
         }

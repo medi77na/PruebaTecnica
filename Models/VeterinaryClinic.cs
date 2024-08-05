@@ -32,9 +32,7 @@ public class VeterinaryClinic
         Cats = new List<Cat>(){
             new Cat("momo", new DateOnly(2021, 2, 1), true, "blanco", 2.5, HairTypes.hairless),
             new Cat("michi", new DateOnly(2020, 11, 25), false, "negro", 3.0, HairTypes.mediumHair),
-            new Cat("robert", new DateOnly(2021, 4, 10), true, "marrón", 3.8, HairTypes.longHair),
             new Cat("canelo", new DateOnly(2021, 6, 5), false, "gris", 3.2, HairTypes.shortHair),
-            new Cat("topo", new DateOnly(2020, 10, 15), false, "negro", 3.0, HairTypes.mediumHair),
             new Cat("micky", new DateOnly(2021, 5, 10), true, "marrón", 3.8, HairTypes.longHair)
         };
     }
