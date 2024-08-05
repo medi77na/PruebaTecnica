@@ -59,7 +59,7 @@ public static class AnimalData
 
     public static HairTypes AskFurLength()
     {
-        int option = Validation.ValidateIntRangeEnum("¿Cuál es la longitud de la peloza de la mascota? (1) Corto (2) Mediano (3) Largo: ", 1, typeof(HairTypes));
+        int option = Validation.ValidateIntRangeEnum("¿Cuál es la longitud de la peloza de la mascota? (1) Sin pelo (2) Corto (3) Mediano (4) Largo: ", 1, typeof(HairTypes))-1;
         return (HairTypes)option;
     }
 }

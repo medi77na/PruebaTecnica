@@ -12,7 +12,7 @@ public static class DogData
 
     public static Temperaments AskTemperament()
     {
-        int option = Validation.ValidateIntRangeEnum("¿Cuál es el tipo de temperamento de la mascota? (1) Tímido (2) Normal (3) Agresivo: ", 1, typeof(Temperaments));
+        int option = Validation.ValidateIntRangeEnum("¿Cuál es el tipo de temperamento de la mascota? (1) Tímido (2) Normal (3) Agresivo: ", 1, typeof(Temperaments))-1;
         return (Temperaments)option;
     }
 
