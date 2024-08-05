@@ -26,13 +26,8 @@ public static class DogData
         return Validation.ValidateDouble("¿Cuál es el volumen de ladrar de la mascota en decibelios?: ");
     }
 
-    public static string? AskCoatType()
-    {
-        return Validation.ValidateString("¿Cuál es el tipo de pelaje de la mascota?: ");
-    }
-
     public static Dog AskDog()
     {
-        return new Dog(AnimalData.AskName(), AnimalData.AskBirthDate(), AnimalData.AskBreedingStatus(), AnimalData.AskColor(), AnimalData.AskWeight(), AskTemperament(), AskMicroshipNumber(), AskBarkVolume(), AskCoatType(), AnimalData.AskFurLength());
+        return new Dog(AnimalData.AskName(), AnimalData.AskBirthDate(), AnimalData.AskBreedingStatus(), AnimalData.AskColor(), AnimalData.AskWeight(), AskTemperament(), AskMicroshipNumber(), AskBarkVolume(), AnimalData.AskFurLength());
     }
 }

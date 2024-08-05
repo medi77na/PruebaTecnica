@@ -25,10 +25,10 @@ public class VeterinaryClinic
         Name = name;
         Address = address;
         Dogs = new List<Dog>(){
-            new Dog("buddy", new DateOnly(2021, 1, 1), true, "blanco", 3.5, Temperaments.normal, "123456789", 2.5, "suave", HairTypes.hairless),
-            new Dog("max", new DateOnly(2020, 12, 15), false, "negro", 4.0, Temperaments.shy, "987654321", 3.0, "aspero", HairTypes.mediumHair),
-            new Dog("tommy", new DateOnly(2021, 3, 20), true, "marrón", 3.8, Temperaments.aggressive, "321654987", 3.2, "grueso", HairTypes.longHair),
-            new Dog("bruno", new DateOnly(2021, 5, 10), false, "gris", 3.2, Temperaments.normal, "741852963", 2.8, "liso", HairTypes.shortHair)
+            new Dog("buddy", new DateOnly(2021, 1, 1), true, "blanco", 3.5, Temperaments.normal, "123456789", 2.5, HairTypes.hairless),
+            new Dog("max", new DateOnly(2020, 12, 15), false, "negro", 4.0, Temperaments.shy, "987654321", 3.0, HairTypes.mediumHair),
+            new Dog("tommy", new DateOnly(2021, 3, 20), true, "marrón", 3.8, Temperaments.aggressive, "321654987", 3.2, HairTypes.longHair),
+            new Dog("bruno", new DateOnly(2021, 5, 10), false, "gris", 3.2, Temperaments.normal, "741852963", 2.8, HairTypes.shortHair)
         };
         Cats = new List<Cat>(){
             new Cat("momo", new DateOnly(2021, 2, 1), true, "blanco", 2.5, HairTypes.hairless),
@@ -39,7 +39,7 @@ public class VeterinaryClinic
             new Cat("micky", new DateOnly(2021, 5, 10), true, "marrón", 3.8, HairTypes.longHair)
         };
     }
-    
+
     public void SaveDog()
     {
         Console.WriteLine("Añadiendo un perro: ");
@@ -47,9 +47,61 @@ public class VeterinaryClinic
         Dogs.Add(DogData.AskDog());
     }
 
-    public void UpdateDog(int position, Dog dog)
+    public void UpdateDog()
     {
-        Dogs[position] = dog;
+        Console.WriteLine("ACTUALIZANDO UN PERRO: ");
+        Console.WriteLine("");
+        Dog dog = SearchDogById();
+        int option = ShowDogProperties();
+        switch (option)
+        {
+            case 1:
+                dog.Name = AnimalData.AskName();
+                break;
+            case 2:
+                dog.Birthdate = AnimalData.AskBirthDate();
+                break;
+            case 3:
+                dog.BreedingStatus = AnimalData.AskBreedingStatus();
+                break;
+            case 4:
+                dog.Color = AnimalData.AskColor();
+                break;
+            case 5:
+                dog.Weightlnkg = AnimalData.AskWeight();
+                break;
+            case 6:
+                dog.Temperament = DogData.AskTemperament();
+                break;
+            case 7:
+                dog.MicroshipNumber = DogData.AskMicroshipNumber();
+                break;
+            case 8:
+                dog.BarkVolume = DogData.AskBarkVolume();
+                break;
+            case 9:
+                dog.FurLength = AnimalData.AskFurLength();
+                break;
+            default:
+                Console.WriteLine("Opción inválida.");
+                VisualInterfaceProgram.WaitForKey();
+                break;
+        }
+    }
+
+    public int ShowDogProperties()
+    {
+        return Validation.ValidateIntRange(@"(1) Nombre
+(2) Fecha de nacimiento
+(3) Estado de reproductivo
+(4) Color
+(5) Peso
+(6) Temperamento
+(7) Microchip
+(8) Volumen de ladrar
+(9) Longitud de pelo
+--------------------------------------------------------
+Digite la opción: ", 1, 9);
     }
 
     public void DeleteDog()
@@ -98,53 +150,90 @@ public class VeterinaryClinic
         Cats.Add(CatData.AskCat());
     }
 
-    public void UpdateCat(int position, Cat cat)
+    public void UpdateCat()
     {
-        Cats[position] = cat;
-    }
-
-    public void DeleteCat()
-    {
-        Console.WriteLine("Eliminando un gato: ");
+        Console.WriteLine("ACTUALIZANDO UN GATO: ");
         Console.WriteLine("");
-        Cats.Remove(SearchCatById());
-    }
-
-    public Cat SearchCatById()
-    {
-        bool flag = true;
-        Cat cat;
-
-        do
+        Cat cat = SearchCatById();
+        int option = ShowCatProperties();
+        switch (option)
         {
-            int id = Validation.ValidateInt("Ingrese el ID del gato: ");
-            cat = Cats.Find(c => c.Id == id);
-            if (cat != null)
-            {
-                flag = false;
-            }
-            else
-            {
-                Console.WriteLine("No se encontró un gato con ese ID.");
+            case 1:
+                cat.Name = AnimalData.AskName();
+                break;
+            case 2:
+                cat.Birthdate = AnimalData.AskBirthDate();
+                break;
+            case 3:
+                cat.BreedingStatus = AnimalData.AskBreedingStatus();
+                break;
+            case 4:
+                cat.Color = AnimalData.AskColor();
+                break;
+            case 5:
+                cat.Weightlnkg = AnimalData.AskWeight();
+                break;
+            case 6:
+                cat.FurLength = AnimalData.AskFurLength();
+                break;
+            default:
+                Console.WriteLine("Opción inválida.");
                 VisualInterfaceProgram.WaitForKey();
-            }
-        } while (flag);
-        return cat;
-    }
-
-    public void ShowCats()
-    {
-        Console.WriteLine(@"LISTA DE GATOS:
---------------------------------------------");
-        foreach (var cat in Cats)
-        {
-            Console.WriteLine(cat);
+                break;
         }
     }
 
+    public int ShowCatProperties()
+    {
+        return Validation.ValidateIntRange(@"(1) Nombre
+(2) Fecha de nacimiento
+(3) Estado de reproductivo
+(4) Color
+(5) Peso
+(6) Longitud de pelo
+--------------------------------------------------------
+Digite la opción: ", 1, 6);
+    }
+// AnimalData.AskName(), AnimalData.AskBirthDate(), AnimalData.AskBreedingStatus(), AnimalData.AskColor(), AnimalData.AskWeight(), AnimalData.AskFurLength());
 
-    // public List<object> ShowAll()
-    // {
-    //     return Dogs.Join(Cats);
-    // }
-}
+
+        public void DeleteCat()
+        {
+            Console.WriteLine("Eliminando un gato: ");
+            Console.WriteLine("");
+            Cats.Remove(SearchCatById());
+        }
+
+        public Cat SearchCatById()
+        {
+            bool flag = true;
+            Cat cat;
+
+            do
+            {
+                int id = Validation.ValidateInt("Ingrese el ID del gato: ");
+                cat = Cats.Find(c => c.Id == id);
+                if (cat != null)
+                {
+                    flag = false;
+                }
+                else
+                {
+                    Console.WriteLine("No se encontró un gato con ese ID.");
+                    VisualInterfaceProgram.WaitForKey();
+                }
+            } while (flag);
+            return cat;
+        }
+
+        public void ShowCats()
+        {
+            Console.WriteLine(@"LISTA DE GATOS:
+--------------------------------------------");
+            foreach (var cat in Cats)
+            {
+                Console.WriteLine(cat);
+            }
+        }
+
+    }

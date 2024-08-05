@@ -11,15 +11,13 @@ namespace _11_RecomendacionesProyectoBase.Models
         public Temperaments Temperament { get; set; }
         public string? MicroshipNumber { get; set; }
         public double BarkVolume { get; set; }
-        public string? CoatType { get; set; }
 
-        public Dog(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, Temperaments temperament, string? microshipNumber, double barkVolume, string? coatType, HairTypes furLength)
+        public Dog(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, Temperaments temperament, string? microshipNumber, double barkVolume, HairTypes furLength)
         : base(name, birthDate, breedingStatus, color, weightlnkg, furLength)
         {
             Temperament = temperament;
             MicroshipNumber = microshipNumber;
             BarkVolume = barkVolume;
-            CoatType = coatType;
         }
 
         public override void Hairdress()
@@ -41,7 +39,7 @@ namespace _11_RecomendacionesProyectoBase.Models
 
         public override string ToString()
         {
-            return $"ID: {Id}, Nombre: {Name}, Fecha de nacimiento: {Birthdate}, Estado de reproductividad: {(BreedingStatus? "Si" : "No")}, Color: {Color}, Peso: {Weightlnkg} kg, Temperamento: {Temperament}, Microchip: {MicroshipNumber}, Volumen de ladrar: {BarkVolume} dB, Tipo de pelaje: {CoatType}, Longitud de pelo: {FurLength}";
+            return $"ID: {Id}, Nombre: {Name}, Fecha de nacimiento: {Birthdate}, Estado de reproductividad: {(BreedingStatus? "Si" : "No")}, Color: {Color}, Peso: {Weightlnkg} kg, Temperamento: {Temperament}, Microchip: {MicroshipNumber}, Volumen de ladrar: {BarkVolume} dB, Longitud de pelo: {FurLength}";
         }
     }
 }

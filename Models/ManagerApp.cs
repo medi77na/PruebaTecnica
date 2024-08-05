@@ -61,7 +61,7 @@ INGRESE LA OPCIÓN: ", 1, 4);
                     animalClinic.SaveDog();
                     break;
                 case 2:
-                    // animalClinic.UpdateDog(1,);
+                    animalClinic.UpdateDog();
                     break;
                 case 3:
                     animalClinic.DeleteDog();
