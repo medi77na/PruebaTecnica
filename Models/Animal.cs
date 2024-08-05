@@ -8,7 +8,7 @@ namespace _11_RecomendacionesProyectoBase.Models;
 public abstract class Animal
 {
 
-    protected int id = 0;
+    protected int id = 00001;
     public int Id
     {
         get { return id; }

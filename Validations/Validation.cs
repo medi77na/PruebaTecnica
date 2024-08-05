@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _11_RecomendacionesProyectoBase.Models;
+using _11_RecomendacionesProyectoBase.Request;
 
 namespace _11_RecomendacionesProyectoBase.Validations;
 public class Validation
@@ -146,14 +147,14 @@ public class Validation
         return number;
     }
 
-    public static DateOnly ValidateDate(DateOnly askDate)
+    public static DateOnly ValidateDate()
     {
         bool flag = true;
         DateOnly date;
 
         do
         {
-            date = askDate;
+            date = DateOnly.FromDateTime(new DateTime(AnimalData.AskBirthYear(), AnimalData.AskBirthMonth(), AnimalData.AskBirthDay()));
             if (date.Month > DateTime.Now.Month && date.Year > DateTime.Now.Year)
             {
                 Console.WriteLine(" ");

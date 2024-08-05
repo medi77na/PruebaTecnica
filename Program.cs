@@ -7,3 +7,7 @@
 // - En operations (clases estaticas) irán las diferentes operaciones que hacen cada metodo de cada clase
 // - En Models.Admin se hará el switch del menu y se pondrá la función inicial
 // 
+
+using _11_RecomendacionesProyectoBase.Models;
+
+ManagerApp.MainMenu();

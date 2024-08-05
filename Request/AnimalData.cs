@@ -10,32 +10,29 @@ namespace _11_RecomendacionesProyectoBase.Request;
 
 public static class AnimalData
 {
-    // public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, HairTypes furLength)
-
-
     public static string AskName()
     {
         return Validation.ValidateString("Digite el nombre de la mascota: ");
     }
 
-    private static int AskBirthYear()
+    public static int AskBirthYear()
     {
-        return Validation.ValidateInt("Digite el año de nacimiento: ");
+        return Validation.ValidateIntRange("Digite el año de nacimiento: ",0,10000);
     }
 
-    private static int AskBirthMonth()
+    public static int AskBirthMonth()
     {
-        return Validation.ValidateInt("Digite el número del mes de nacimiento: ");
+        return Validation.ValidateIntRange("Digite el número del mes de nacimiento: ",1,12);
     }
 
-    private static int AskBirthDay()
+    public static int AskBirthDay()
     {
-        return Validation.ValidateInt("Digite el número del día de nacimiento: ");
+        return Validation.ValidateIntRange("Digite el número del día de nacimiento: ",1,31);
     }
 
     public static DateOnly AskBirthDate()
     {
-        return Validation.ValidateDate(DateOnly.FromDateTime(new DateTime(AskBirthYear(), AskBirthMonth(), AskBirthDay())));
+        return Validation.ValidateDate();
     }
 
     public static bool AskBreedingStatus()
@@ -65,12 +62,4 @@ public static class AnimalData
         int option = Validation.ValidateIntRangeEnum("¿Cuál es la longitud de la peloza de la mascota? (1) Corto (2) Mediano (3) Largo: ", 1, typeof(HairTypes));
         return (HairTypes)option;
     }
-
-    public static Animal GetAnimal()
-    {
-        return new Animal(AskName, AskBirthDate, AskBreedingStatus, AskColor, AskWeight, AskFurLength);
-    }
-
-
-
 }

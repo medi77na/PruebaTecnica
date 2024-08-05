@@ -8,7 +8,6 @@ namespace _11_RecomendacionesProyectoBase.Models
 {
     public class Dog : Animal
     {
-
         public Temperaments Temperament { get; set; }
         public string? MicroshipNumber { get; set; }
         public double BarkVolume { get; set; }
@@ -38,6 +37,11 @@ namespace _11_RecomendacionesProyectoBase.Models
                 Console.WriteLine($"Hemos peluqueado a {name} exitosamente...");
                 FurLength = HairTypes.hairless;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Nombre: {Name}, Fecha de nacimiento: {Birthdate}, Estado de reproductividad: {(BreedingStatus? "Si" : "No")}, Color: {Color}, Peso: {Weightlnkg} kg, Temperamento: {Temperament}, Microchip: {MicroshipNumber}, Volumen de ladrar: {BarkVolume} dB, Tipo de pelaje: {CoatType}, Longitud de pelo: {FurLength}";
         }
     }
 }
