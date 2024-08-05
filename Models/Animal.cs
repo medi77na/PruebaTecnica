@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _11_RecomendacionesProyectoBase.Enums;
 
 namespace _11_RecomendacionesProyectoBase.Models;
 public abstract class Animal
@@ -49,7 +50,15 @@ public abstract class Animal
         set { weightlnkg = value; }
     }
 
-    public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg)
+    private HairTypes furLength;
+    public HairTypes FurLength
+    {
+        get { return furLength; }
+        set { furLength = value; }
+    }
+    
+
+    public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, HairTypes furLength)
     {
         Id = Guid.NewGuid();
         Name = name;
@@ -57,6 +66,7 @@ public abstract class Animal
         BreedingStatus = breedingStatus;
         Color = color;
         Weightlnkg = weightlnkg;
+        FurLength = furLength;
     }
 
     public override string ToString()

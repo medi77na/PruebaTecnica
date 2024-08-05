@@ -1,4 +1,4 @@
-namespace _11_RecomendacionesProyectoBase.Models.Enums
+namespace _11_RecomendacionesProyectoBase.Enums
 {
     public enum HairTypes
     {
