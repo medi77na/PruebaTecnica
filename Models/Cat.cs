@@ -26,5 +26,10 @@ namespace _11_RecomendacionesProyectoBase.Models
                 FurLength = HairTypes.hairless;
             }
         }
+
+        public override string ToString()
+        {
+            return $"| {Id}  | {Name,-8} | {Birthdate,-19} | {(BreedingStatus? "Activo" : "Inactivo"),-19} | {Color,-9} | {Weightlnkg+" kg",-10} |{FurLength,-17} |";
+        }
     }
 }

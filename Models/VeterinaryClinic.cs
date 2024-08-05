@@ -10,7 +10,6 @@ using Microsoft.VisualBasic;
 namespace _11_RecomendacionesProyectoBase.Models;
 public class VeterinaryClinic
 {
-
     public string Name { get; set; }
     public string Address { get; set; }
     public List<Dog> Dogs { get; set; }
@@ -135,12 +134,26 @@ Digite la opción: ", 1, 9);
 
     public void ShowDogs()
     {
-        Console.WriteLine(@"LISTA DE PERROS:
---------------------------------------------");
         foreach (var dog in Dogs)
         {
             Console.WriteLine(dog);
         }
+    }
+
+    public void CastrateDog()
+    {
+        Console.WriteLine("Castrando un perro: ");
+        Console.WriteLine("");
+        Dog dog = SearchDogById();
+        dog.CastrateAnimal();
+    }
+
+    public void HairdresDog()
+    {
+        Console.WriteLine("BARBERÍA CANINA: ");
+        Console.WriteLine("");
+        Dog dog = SearchDogById();
+        dog.Hairdress();
     }
 
     public void SaveCat()
@@ -194,46 +207,58 @@ Digite la opción: ", 1, 9);
 --------------------------------------------------------
 Digite la opción: ", 1, 6);
     }
-// AnimalData.AskName(), AnimalData.AskBirthDate(), AnimalData.AskBreedingStatus(), AnimalData.AskColor(), AnimalData.AskWeight(), AnimalData.AskFurLength());
 
-
-        public void DeleteCat()
-        {
-            Console.WriteLine("Eliminando un gato: ");
-            Console.WriteLine("");
-            Cats.Remove(SearchCatById());
-        }
-
-        public Cat SearchCatById()
-        {
-            bool flag = true;
-            Cat cat;
-
-            do
-            {
-                int id = Validation.ValidateInt("Ingrese el ID del gato: ");
-                cat = Cats.Find(c => c.Id == id);
-                if (cat != null)
-                {
-                    flag = false;
-                }
-                else
-                {
-                    Console.WriteLine("No se encontró un gato con ese ID.");
-                    VisualInterfaceProgram.WaitForKey();
-                }
-            } while (flag);
-            return cat;
-        }
-
-        public void ShowCats()
-        {
-            Console.WriteLine(@"LISTA DE GATOS:
---------------------------------------------");
-            foreach (var cat in Cats)
-            {
-                Console.WriteLine(cat);
-            }
-        }
-
+    public void DeleteCat()
+    {
+        Console.WriteLine("Eliminando un gato: ");
+        Console.WriteLine("");
+        Cats.Remove(SearchCatById());
     }
+
+    public Cat SearchCatById()
+    {
+        bool flag = true;
+        Cat cat;
+
+        do
+        {
+            int id = Validation.ValidateInt("Ingrese el ID del gato: ");
+            cat = Cats.Find(c => c.Id == id);
+            if (cat != null)
+            {
+                flag = false;
+            }
+            else
+            {
+                Console.WriteLine("No se encontró un gato con ese ID.");
+                VisualInterfaceProgram.WaitForKey();
+            }
+        } while (flag);
+        return cat;
+    }
+
+    public void CastrateCat()
+    {
+        Console.WriteLine("Castrando un gato: ");
+        Console.WriteLine("");
+        Cat cat = SearchCatById();
+        cat.CastrateAnimal();
+    }
+
+    public void ShowCats()
+    {
+        foreach (var cat in Cats)
+        {
+            Console.WriteLine(cat);
+        }
+    }
+
+    public void HairdresCat()
+    {
+        Console.WriteLine("BARBERÍA FELINA: ");
+        Console.WriteLine("");
+        Cat cat = SearchCatById();
+        cat.Hairdress();
+    }
+
+}

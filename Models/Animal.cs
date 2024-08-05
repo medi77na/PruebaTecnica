@@ -8,7 +8,7 @@ namespace _11_RecomendacionesProyectoBase.Models;
 public abstract class Animal
 {
 
-    protected int id = 00001;
+    protected int id;
     public int Id
     {
         get { return id; }
@@ -60,13 +60,19 @@ public abstract class Animal
 
     public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg, HairTypes furLength)
     {
-        Id = id++;
+        Id = AgregateId();
         Name = name;
         Birthdate = birthDate;
         BreedingStatus = breedingStatus;
         Color = color;
         Weightlnkg = weightlnkg;
         FurLength = furLength;
+    }
+
+    private static int number = 0;
+    public static int AgregateId()
+    {
+        return number++;
     }
 
     public override string ToString()

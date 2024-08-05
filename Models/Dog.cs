@@ -39,7 +39,7 @@ namespace _11_RecomendacionesProyectoBase.Models
 
         public override string ToString()
         {
-            return $"ID: {Id}, Nombre: {Name}, Fecha de nacimiento: {Birthdate}, Estado de reproductividad: {(BreedingStatus? "Si" : "No")}, Color: {Color}, Peso: {Weightlnkg} kg, Temperamento: {Temperament}, Microchip: {MicroshipNumber}, Volumen de ladrar: {BarkVolume} dB, Longitud de pelo: {FurLength}";
+            return $"| {Id}  | {Name,-8} | {Birthdate,-19} | {(BreedingStatus? "Activo" : "Inactivo"),-19} | {Color,-9} | {Weightlnkg+" kg",-10} |{FurLength,-17} |";
         }
     }
 }
