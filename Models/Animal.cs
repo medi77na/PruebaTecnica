@@ -28,11 +28,11 @@ public abstract class Animal
         set { birthDate = value; }
     }
 
-    protected bool breed;
-    public bool Breed
+    protected bool breedingStatus;
+    public bool BreedingStatus
     {
-        get { return breed; }
-        set { breed = value; }
+        get { return breedingStatus; }
+        set { breedingStatus = value; }
     }
 
     protected string? color;
@@ -49,20 +49,19 @@ public abstract class Animal
         set { weightlnkg = value; }
     }
 
-    public Animal(string? name, DateOnly birthDate, bool breed, string? color, double weightlnkg)
+    public Animal(string? name, DateOnly birthDate, bool breedingStatus, string? color, double weightlnkg)
     {
-        
         Id = Guid.NewGuid();
         Name = name;
         Birthdate = birthDate;
-        Breed = breed;
+        BreedingStatus = breedingStatus;
         Color = color;
         Weightlnkg = weightlnkg;
     }
 
     public override string ToString()
     {
-        return $"Id: {Id}, Nombre: {Name}, Fecha de Nacimiento: {Birthdate:dd/MM/yyyy}, Raza: {Breed}, Color: {Color}, Peso: {Weightlnkg} kg";
+        return $"Id: {Id}, Nombre: {Name}, Fecha de Nacimiento: {Birthdate:dd/MM/yyyy}, Raza: {BreedingStatus}, Color: {Color}, Peso: {Weightlnkg} kg";
     }
 
     public int CalculateAgeInMonths()
@@ -74,4 +73,19 @@ public abstract class Animal
         }
         return ageInMonths;
     }
+
+    public void CastrateAnimal()
+    {
+        if (BreedingStatus)
+        {
+            Console.WriteLine($"No podemos VOLVER a castrar a {name}...");
+            
+        }
+        else
+        {
+            Console.WriteLine($"{name} ha sido castrad@ con éxito...");
+            BreedingStatus = true;
+        }
+    }
+    public abstract void Hairdress();
 }
